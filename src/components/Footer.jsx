@@ -37,7 +37,7 @@ const Footer = () => {
               <img className="w-5" src={insta} alt="" />
             </a>
             <a
-              href="www.linkedin.com/in/piyush-sirolia-070174369"
+              href="https://www.linkedin.com/in/piyush-sirolia-070174369"
               target="_blank"
             >
               <img className="w-5" src={linkedIN} alt="" />
