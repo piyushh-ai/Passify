@@ -239,7 +239,7 @@ const PassInput = () => {
                       </div>
 
                       <div className=" flex flex-col items-center justify-center">
-                        <span className="font-semibold text-xl">Username</span>
+                        <span className="font-semibold text-lg">Username</span>
                         <span className="break-all flex items-center justify-center gap-2">
                           {elem.username}{" "}
                           <div
@@ -254,7 +254,7 @@ const PassInput = () => {
                       </div>
 
                       <div className=" flex flex-col items-center justify-center">
-                        <span className="font-semibold text-xl">Password</span>
+                        <span className="font-semibold text-lg">Password</span>
                         <span className="break-all flex items-center justify-center gap-2">
                           {"*".repeat(elem.password.length)}{" "}
                           <div
@@ -269,7 +269,7 @@ const PassInput = () => {
                       </div>
 
                       <div className=" flex flex-col items-center justify-center ">
-                        <span className="font-semibold text-xl">Action</span>
+                        <span className="font-semibold text-lg">Action</span>
                         <div className="flex justify-center items-center gap-2">
                           <Pencil
                             size={18}
