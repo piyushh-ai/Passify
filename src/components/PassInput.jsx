@@ -214,88 +214,161 @@ const PassInput = () => {
                 <h1>No password to show</h1>
               </div>
             ) : (
-              <table className="table-auto w-full  rounded-md overflow-hidden ">
-                <thead className="bg-blue-300">
-                  <tr>
-                    <th className=" p-1 text-xl ">Website</th>
-                    <th className=" p-1 text-xl">Username</th>
-                    <th className=" p-1 text-xl ">Password</th>
-                    <th className=" p-1 text-xl ">Actions</th>
-                  </tr>
-                </thead>
-                {allPassword.map((elem, idx) => {
-                  return (
-                    <tbody
+              <div>
+                <div className="md:hidden  space-y-4">
+                  {allPassword.map((elem, idx) => (
+                    <div
                       key={idx}
-                      className="bg-blue-100  border border-blue-200"
+                      className="bg-blue-100 border flex flex-col py-5 justify-center items-center gap-2  border-blue-300 rounded-lg "
                     >
-                      <tr>
-                        <td className=" text-center text-md p-2 break-all">
-                          <div className="flex items-center justify-center gap-3">
-                            <a href={elem.url} target="_blank">
-                              {elem.url}
-                            </a>
-                            <div
-                              onClick={() => {
-                                copyText(elem.url);
-                              }}
-                              className="cursor-pointer active:scale-95"
-                            >
-                              <Copy size={16} />
-                            </div>
+                      <div className=" flex flex-col items-center justify-center">
+                        <span className="font-semibold text-xl">Website</span>
+                        <span className="break-all flex items-center justify-center gap-2">
+                          <a href={elem.url} target="_blank">
+                            {elem.url}
+                          </a>
+                          <div
+                            onClick={() => {
+                              copyText(elem.url);
+                            }}
+                            className="cursor-pointer active:scale-95"
+                          >
+                            <Copy size={16} />
                           </div>
-                        </td>
-                        <td className="text-center text-md  p-2 break-all">
-                          <div className="flex items-center justify-center gap-3">
-                            {elem.username}
-                            <div
-                              onClick={() => {
-                                copyText(elem.username);
-                              }}
-                              className="cursor-pointer active:scale-95"
-                            >
-                              <Copy size={16} />
-                            </div>
+                        </span>
+                      </div>
+
+                      <div className=" flex flex-col items-center justify-center">
+                        <span className="font-semibold text-xl">Username</span>
+                        <span className="break-all flex items-center justify-center gap-2">
+                          {elem.username}{" "}
+                          <div
+                            onClick={() => {
+                              copyText(elem.username);
+                            }}
+                            className="cursor-pointer active:scale-95"
+                          >
+                            <Copy size={16} />
                           </div>
-                        </td>
-                        <td className="text-center text-md  p-2 break-all">
-                          <div className="flex items-center justify-center gap-3">
-                            {"*".repeat(elem.password.length)}
-                            <div
-                              onClick={() => {
-                                copyText(elem.password);
-                              }}
-                              className="cursor-pointer active:scale-95"
-                            >
-                              <Copy size={16} />
-                            </div>
+                        </span>
+                      </div>
+
+                      <div className=" flex flex-col items-center justify-center">
+                        <span className="font-semibold text-xl">Password</span>
+                        <span className="break-all flex items-center justify-center gap-2">
+                          {"*".repeat(elem.password.length)}{" "}
+                          <div
+                            onClick={() => {
+                              copyText(elem.password);
+                            }}
+                            className="cursor-pointer active:scale-95"
+                          >
+                            <Copy size={16} />
                           </div>
-                        </td>
-                        <td className="text-center text-md  p-2 break-all">
-                          <div className="flex items-center justify-center gap-3">
-                            <div
-                              onClick={() => {
-                                editPassword(idx);
-                              }}
-                              className="cursor-pointer active:scale-95"
-                            >
-                              <Pencil size={18} />
+                        </span>
+                      </div>
+
+                      <div className=" flex flex-col items-center justify-center ">
+                        <span className="font-semibold text-xl">Action</span>
+                        <div className="flex justify-center items-center gap-2">
+                          <Pencil
+                            size={18}
+                            onClick={() => editPassword(idx)}
+                            className="cursor-pointer"
+                          />
+                          <Trash
+                            size={18}
+                            onClick={() => deletePassword(idx)}
+                            className="cursor-pointer"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <table className="hidden md:table table-auto w-full rounded-md overflow-hidden  ">
+                  <thead className="bg-blue-300">
+                    <tr>
+                      <th className=" p-1 text-xl ">Website</th>
+                      <th className=" p-1 text-xl">Username</th>
+                      <th className=" p-1 text-xl ">Password</th>
+                      <th className=" p-1 text-xl ">Actions</th>
+                    </tr>
+                  </thead>
+                  {allPassword.map((elem, idx) => {
+                    return (
+                      <tbody
+                        key={idx}
+                        className="bg-blue-100  border border-blue-200"
+                      >
+                        <tr>
+                          <td className=" text-center text-md p-2 break-all">
+                            <div className="flex items-center justify-center gap-3">
+                              <a href={elem.url} target="_blank">
+                                {elem.url}
+                              </a>
+                              <div
+                                onClick={() => {
+                                  copyText(elem.url);
+                                }}
+                                className="cursor-pointer active:scale-95"
+                              >
+                                <Copy size={16} />
+                              </div>
                             </div>
-                            <div
-                              onClick={() => {
-                                deletePassword(idx);
-                              }}
-                              className="cursor-pointer active:scale-95"
-                            >
-                              <Trash size={18} />
+                          </td>
+                          <td className="text-center text-md  p-2 break-all">
+                            <div className="flex items-center justify-center gap-3">
+                              {elem.username}
+                              <div
+                                onClick={() => {
+                                  copyText(elem.username);
+                                }}
+                                className="cursor-pointer active:scale-95"
+                              >
+                                <Copy size={16} />
+                              </div>
                             </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  );
-                })}
-              </table>
+                          </td>
+                          <td className="text-center text-md  p-2 break-all">
+                            <div className="flex items-center justify-center gap-3">
+                              {"*".repeat(elem.password.length)}
+                              <div
+                                onClick={() => {
+                                  copyText(elem.password);
+                                }}
+                                className="cursor-pointer active:scale-95"
+                              >
+                                <Copy size={16} />
+                              </div>
+                            </div>
+                          </td>
+                          <td className="text-center text-md  p-2 break-all">
+                            <div className="flex items-center justify-center gap-3">
+                              <div
+                                onClick={() => {
+                                  editPassword(idx);
+                                }}
+                                className="cursor-pointer active:scale-95"
+                              >
+                                <Pencil size={18} />
+                              </div>
+                              <div
+                                onClick={() => {
+                                  deletePassword(idx);
+                                }}
+                                className="cursor-pointer active:scale-95"
+                              >
+                                <Trash size={18} />
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
+                </table>
+              </div>
             )}
           </div>
         </div>
