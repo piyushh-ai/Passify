@@ -1,16 +1,20 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import PassInput from './components/PassInput'
-import Footer from './components/Footer'
+import React from "react";
+import Navbar from "./components/Navbar";
+import PassInput from "./components/PassInput";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div>
-      <Navbar/>
-      <PassInput/>
-      <Footer/>
-    </div>
-  )
-}
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
 
-export default App
+      <main className="grow">
+        <PassInput />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
